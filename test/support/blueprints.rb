@@ -7,7 +7,6 @@ NetResource.blueprint do
   last_modified_hash
   update_period { 30 }
   next_update { DateTime.now + 30 }
-  last_updated { DateTime.now }
   body
   created_at DateTime.now
   updated_at DateTime.now

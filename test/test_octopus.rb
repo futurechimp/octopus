@@ -20,8 +20,19 @@ class OctopusTest <  Test::Unit::TestCase
   context "on GET to / with credentials" do
     setup do
       get '/', {}, basic_auth_creds
+    end
 
-      should "respond" do
+    should "respond" do
+      assert last_response.ok?
+    end
+
+    context "when there is one NetResource" do
+      setup do
+        NetResource.make
+        get '/', {}, basic_auth_creds
+      end
+
+      should "work" do
         assert last_response.ok?
       end
     end
