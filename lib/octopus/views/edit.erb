@@ -1,0 +1,29 @@
+<div class="post">
+<h1 class="title">Edit resource</h1>
+<div class="entry">
+<% unless @resource.errors.empty? %>
+  <div class="errors">
+    <h2>Errors on NetResource</h2>
+    <ul>
+    <% @resource.errors.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<form action="/update/<%= @resource.id %>" method="POST">
+    <input name="_method" value="PUT" type="hidden"/>
+
+    <p><strong>Resource url:</strong>
+    The url of the internet resource you want to watch for changes.
+    <input name="net_resource[url]" value="<%= @resource.url %>" id="net_resource_url" size="70"></input></p>
+
+    <p><strong>Update period:</strong>
+    The number of seconds between updates, defaults to 1200 seconds (20 minutes) if left blank.
+    <input name="net_resource[update_period]" value="<%= @resource.update_period %>"id="net_resource_update_period" size="4"></input></p>
+
+    <input type="submit" value="Save"/>
+  </form>
+</div></div>
+

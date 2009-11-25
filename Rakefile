@@ -5,12 +5,20 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "octopus"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
-    gem.email = "dave@boomer"
+    gem.summary = %Q{An experimental octopus implementation.}
+    gem.description = %Q{Grabs stuff off the net and notifies interested subscribers.}
+    gem.email = "dave.hrycyszyn@headlondon.com"
     gem.homepage = "http://github.com/futurechimp/octopus"
     gem.authors = ["dave@boomer"]
-    gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
+    gem.add_development_dependency "datamapper", ">= 0.10.1"
+    gem.add_development_dependency "do_sqlite3", ">= 0.10.0"
+    gem.add_development_dependency "sinatra", ">= 0.9.4"
+    gem.add_development_dependency "thin", ">= 1.2.5"
+    gem.add_development_dependency "thoughtbot-shoulda", ">= 2.10.2"
+    gem.add_development_dependency "rack", ">= 1.0.1"
+    gem.add_development_dependency "rack-flash", ">= 0.1.1"
+    gem.add_development_dependency "rack-test", ">= 0.5.2"
+    gem.add_development_dependency "notahat-machinist", ">= 1.0.3"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
@@ -51,3 +59,4 @@ Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
+

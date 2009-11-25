@@ -1,9 +1,39 @@
 = octopus
 
-Description goes here.
+This thing is an experimental octopus implementation.
+
+== Installation
+
+<pre>
+sudo apt-get install libsqlite3-ruby libsqlite3-dev ruby rubygems
+sudo gem install octopus
+</pre>
+
+*Grab the code:*
+
+Anonymous checkout:
+
+<pre>
+git clone git://git.escapegoat.org/octopus.git
+</pre>
+
+Commit access:
+
+<pre>
+git clone git@escapegoat.org:octopus.git
+</pre>
+
+Once you've got the code, just run the octopus like so:
+
+<pre>
+ruby octopus.rb
+</pre>
+
+Then visit http://localhost:4567 and you can start adding resources for your octopus to grab. There is a resource creation form at http://localhost:4567/new
+
 
 == Note on Patches/Pull Requests
- 
+
 * Fork the project.
 * Make your feature addition or bug fix.
 * Add tests for it. This is important so I don't break it in a
@@ -15,3 +45,4 @@ Description goes here.
 == Copyright
 
 Copyright (c) 2009 dave@boomer. See LICENSE for details.
+

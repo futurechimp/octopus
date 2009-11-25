@@ -1,0 +1,9 @@
+<li>
+<%=h resource_list_item.url %><br/>
+<%= resource_list_item.subscriptions.count %> subscriptions<br/>
+Last updated at <%=h resource_list_item.last_updated.strftime("%m/%d/%Y at  %H:%M:%S")%><br/>
+Last checked at <%=h resource_list_item.updated_at.strftime("%m/%d/%Y at  %H:%M:%S") %><br/>
+Next check will be at <%=h resource_list_item.next_update.strftime("%m/%d/%Y at  %H:%M:%S") %><br/>
+Checked every <%= h resource_list_item.update_period %> seconds.
+</li>
+

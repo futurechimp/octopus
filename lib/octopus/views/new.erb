@@ -1,0 +1,42 @@
+<div class="post">
+<h1 class="title">Create a new resource</h1>
+<div class="entry">
+<% unless @resource.errors.empty? %>
+  <div class="errors">
+    <h2>Errors on NetResource</h2>
+    <ul>
+    <% @resource.errors.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<% unless @subscription.errors.empty? %>
+  <div class="errors">
+    <h2>Errors on Subscription</h2>
+    <ul>
+    <% @subscription.errors.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<form action="/create" method="POST">
+    <p><strong>Resource url:</strong>
+    The url of the internet resource you want to watch for changes.
+    <input name="net_resource[url]" id="net_resource_url" size="70"></input></p>
+    
+    <p><strong>Update period:</strong>
+    The number of seconds between updates, defaults to 1200 seconds (20 minutes) if left blank.
+    <input name="net_resource[update_period]" id="net_resource_update_period" size="4"></input></p>
+
+    <h2 class="title">The Subscription</h2>
+    <p><strong>Notification url:</strong>
+    The url that should be hit when the resource changes.
+    <input name="subscription[url]" id="subscription_url" size="70"></input></p>    
+    <input type="submit" value="Save"/>
+  </form>
+</div></div>
+

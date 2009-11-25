@@ -1,0 +1,21 @@
+<div class="post">
+	<h1 class="title">Welcome to your octopus</h1>
+	<div class="entry">
+		<p>It is watching <strong><%= @resource_count %> resources</strong> on the net,
+		and has a total of <strong><%= @subscription_count %> subscriptions</strong>.</p>
+		<form action="/new_or_edit" method="POST">
+		<p>Add, edit, or delete a resource by pasting its URL in here:<br/>
+		<input name="net_resource[url]" id="net_resource_url" size="70"/>
+		</p>
+		<input type="submit" value="Go!"/>
+		</form>
+
+		<% unless @resources.empty? %>
+		    <p>Here are the next resources which will be checked for changes:</p>
+		    <ul>
+                <%= partial :resource_list_item, :collection => @resources %>
+            </ul>
+        <% end %>
+	</div>
+</div>
+
