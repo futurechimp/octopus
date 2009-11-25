@@ -13,21 +13,15 @@ sudo gem install octopus
 
 Anonymous checkout:
 
-<pre>
-git clone git://git.escapegoat.org/octopus.git
-</pre>
+ foo: put github stuff here
 
 Commit access:
 
-<pre>
-git clone git@escapegoat.org:octopus.git
-</pre>
+ git clone git@escapegoat.org:octopus.git
 
 Once you've got the code, just run the octopus like so:
 
-<pre>
-ruby octopus.rb
-</pre>
+ ruby octopus.rb
 
 Then visit http://localhost:4567 and you can start adding resources for your octopus to grab. There is a resource creation form at http://localhost:4567/new
 
@@ -44,5 +38,5 @@ Then visit http://localhost:4567 and you can start adding resources for your oct
 
 == Copyright
 
-Copyright (c) 2009 dave@boomer. See LICENSE for details.
+Copyright (c) 2009 dave@boomer See LICENSE for details.
 
