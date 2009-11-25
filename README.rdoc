@@ -4,10 +4,9 @@ This thing is an experimental octopus implementation.
 
 == Installation
 
-<pre>
-sudo apt-get install libsqlite3-ruby libsqlite3-dev ruby rubygems
-sudo gem install octopus
-</pre>
+
+ sudo apt-get install libsqlite3-ruby libsqlite3-dev ruby rubygems
+ sudo gem install octopus
 
 *Grab the code:*
 
