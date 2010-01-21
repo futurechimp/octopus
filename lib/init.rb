@@ -6,6 +6,8 @@ require 'datamapper'
 require 'ruby-debug'
 require 'eventmachine'
 require 'rack-flash'
+require 'dm-validations'
+
 
 # Extensions to Sinatra
 #
@@ -16,7 +18,8 @@ require File.dirname(__FILE__) + '/ext/reloader'
 # Octopus code
 #
 require File.dirname(__FILE__) + '/octopus'
-require File.dirname(__FILE__) + '/octopus/models'
+require File.dirname(__FILE__) + '/octopus/models/subscription'
+require File.dirname(__FILE__) + '/octopus/models/net_resource'
 require File.dirname(__FILE__) + '/octopus/grabbers/generic_http'
 
 configure :production do
