@@ -6,7 +6,7 @@ class Subscription
 
   # Properties
   property :id,         Serial
-  property :url,        String,  :nullable => false, :length => (1..254)
+  property :url,        String,  :required => true, :length => (1..254)
   property :created_at, DateTime
   property :updated_at, DateTime
 

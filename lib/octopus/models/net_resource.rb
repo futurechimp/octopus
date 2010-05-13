@@ -7,10 +7,10 @@ class NetResource
   # Properties
   #
   property :id,         Serial
-  property :url,        String,  :nullable => false, :length => (1..254)
+  property :url,        String,  :required => true, :length => (1..254)
   property :last_modified_hash, Integer
-  property :update_period, Integer, :nullable => false, :default => 1200
-  property :next_update, DateTime, :nullable => false, :default => Time.now
+  property :update_period, Integer, :required => true, :default => 1200
+  property :next_update, DateTime, :required => true, :default => Time.now
   property :last_updated, DateTime
   property :body, Text
   property :created_at, DateTime
