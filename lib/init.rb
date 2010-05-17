@@ -13,7 +13,6 @@ require 'dm-validations'
 #
 require File.dirname(__FILE__) + '/ext/partials'
 require File.dirname(__FILE__) + '/ext/array_ext'
-require File.dirname(__FILE__) + '/ext/reloader'
 
 # Octopus code
 #
