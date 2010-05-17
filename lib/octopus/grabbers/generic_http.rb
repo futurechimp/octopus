@@ -1,6 +1,8 @@
 module Grabbers
   class GenericHttp
 
+    cattr_accessor :currently_encoding
+
     include EM::Protocols
 
     # Adds a periodic timer to the Eventmachine reactor loop and immediately
