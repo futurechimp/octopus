@@ -1,5 +1,4 @@
 require File.dirname(__FILE__) + '/../helper'
-require 'em-spec/test'
 
 class Grabbers::GenericHttpTest <  Test::Unit::TestCase
 
@@ -30,8 +29,6 @@ class Grabbers::GenericHttpTest <  Test::Unit::TestCase
 #
 #      end
 #    end
-
-
   end
 
 end

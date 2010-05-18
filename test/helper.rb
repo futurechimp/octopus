@@ -5,6 +5,7 @@ require 'base64'
 require 'machinist/data_mapper'
 require 'faker'
 require 'sham'
+require 'em-spec/test'
 set :environment, :test
 set :run, false
 set :raise_errors, true
