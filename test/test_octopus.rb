@@ -22,8 +22,12 @@ class OctopusTest <  Test::Unit::TestCase
       get '/', {}, basic_auth_creds
     end
 
-    should "respond" do
+    should "work" do
       assert last_response.ok?
+    end
+
+    should "render the index view" do
+      assert_match /Welcome to your octopus/, last_response.body
     end
 
     context "when there is one NetResource" do
@@ -34,6 +38,10 @@ class OctopusTest <  Test::Unit::TestCase
 
       should "work" do
         assert last_response.ok?
+      end
+
+      should "render the index view with a summary of watched resources" do
+        assert_match /Here are the next resources which will be checked for changes/, last_response.body
       end
     end
   end
