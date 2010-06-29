@@ -5,9 +5,9 @@ require 'sinatra'
 require 'datamapper'
 require 'ruby-debug'
 require 'eventmachine'
-require 'rack-flash'
 require 'dm-validations'
 require 'dm-migrations'
+require 'rack-flash'
 
 # Extensions to Sinatra
 #
