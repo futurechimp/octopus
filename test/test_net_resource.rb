@@ -55,7 +55,6 @@ class NetResourceTest <  Test::Unit::TestCase
   end
 
   context "The NetResource class" do
-
     should "have an 'expired' named scope" do
       # First, set all existing resources to expire tomorrow and give them a
       # next_update time of 20 seconds.
