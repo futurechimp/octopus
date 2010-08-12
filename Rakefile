@@ -12,7 +12,7 @@ begin
     gem.authors = ["dave@boomer"]
     gem.add_dependency "data_mapper", ">= 1.0.0"
     gem.add_dependency "dm-sqlite-adapter", ">= 1.0.0"
-    gem.add_dependency "sinatra", ">= 0.9.4"
+    gem.add_dependency "sinatra", ">= 1.0.0"
     gem.add_dependency "thin", ">= 1.2.5"
     gem.add_dependency "rack-flash", ">= 0.1.1"
     gem.add_dependency "rack", ">= 1.0.1"
