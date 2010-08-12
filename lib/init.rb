@@ -2,11 +2,12 @@
 #
 require 'rubygems'
 require 'sinatra'
-require 'datamapper'
+require 'data_mapper'
 require 'ruby-debug'
 require 'eventmachine'
 require 'rack-flash'
 require 'dm-validations'
+require 'dm-sqlite-adapter'
 
 
 # Extensions to Sinatra
@@ -40,6 +41,9 @@ end
 configure :production, :test, :development do
   NetResource.auto_migrate! unless NetResource.storage_exists?
   Subscription.auto_migrate! unless Subscription.storage_exists?
+end
+
+configure :production, :development do
   DataMapper.auto_upgrade!
 end
 

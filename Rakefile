@@ -10,8 +10,8 @@ begin
     gem.email = "dave.hrycyszyn@headlondon.com"
     gem.homepage = "http://github.com/futurechimp/octopus"
     gem.authors = ["dave@boomer"]
-    gem.add_dependency "datamapper", ">= 0.10.1"
-    gem.add_dependency "do_sqlite3", ">= 0.10.0"
+    gem.add_dependency "data_mapper", ">= 1.0.0"
+    gem.add_dependency "dm-sqlite-adapter", ">= 1.0.0"
     gem.add_dependency "sinatra", ">= 0.9.4"
     gem.add_dependency "thin", ">= 1.2.5"
     gem.add_dependency "rack-flash", ">= 0.1.1"
