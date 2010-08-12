@@ -16,9 +16,9 @@ begin
     gem.add_dependency "thin", ">= 1.2.5"
     gem.add_dependency "rack-flash", ">= 0.1.1"
     gem.add_dependency "rack", ">= 1.0.1"
-    gem.add_development_dependency "thoughtbot-shoulda", ">= 2.10.2"
+    gem.add_development_dependency "shoulda", ">= 2.10.2"
     gem.add_development_dependency "rack-test", ">= 0.5.2"
-    gem.add_development_dependency "notahat-machinist", ">= 1.0.3"
+    gem.add_development_dependency "machinist", ">= 1.0.3"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
