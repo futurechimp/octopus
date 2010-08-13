@@ -68,7 +68,6 @@ post '/new_or_edit' do
   end
 end
 
-
 # Starts the octopus grabbing thread. The thread will be reabsorbed into the
 # main Sinatra/thin thread once the periodic timer is added.
 #
