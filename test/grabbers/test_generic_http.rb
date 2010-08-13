@@ -12,10 +12,6 @@ class Grabbers::GenericHttpTest <  Test::Unit::TestCase
       end
     end
 
-    should "set its '@@currently_encoding' property to false on initialization" do
-      assert_equal Grabbers::GenericHttp.currently_encoding, false
-    end
-
     should "be able to check on its expired resources" do
       assert @grabber.respond_to?("check_expired_resources")
     end

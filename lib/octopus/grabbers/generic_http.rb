@@ -1,16 +1,12 @@
 module Grabbers
   class GenericHttp
 
-    cattr_accessor :currently_encoding
-
     include EM::Protocols
 
     # Adds a periodic timer to the Eventmachine reactor loop and immediately
     # starts grabbing expired resources and checking them.
     #
     def initialize
-      @@currently_encoding = false
-      puts "Initializing generic http grabber..."
       EM.add_periodic_timer(5) {
         check_expired_resources
       }
