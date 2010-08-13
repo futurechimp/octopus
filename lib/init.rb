@@ -2,8 +2,8 @@
 #
 require 'rubygems'
 require 'sinatra'
-require 'datamapper'
 require 'ruby-debug'
+require 'data_mapper'
 require 'eventmachine'
 require 'dm-validations'
 require 'dm-migrations'
