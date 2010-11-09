@@ -1,9 +1,9 @@
-require File.dirname(__FILE__) + '/helper'
+#require File.dirname(__FILE__) + '/helper'
 
-class GenericHttpGrabberTest <  Test::Unit::TestCase
+#  class GenericHttpTest <  Test::Unit::TestCase
 
-  context "The GenericHttpGrabber" do
-  end
+#  #  context "The GenericHttpGrabber" do
+#  #  end
 
-end
+#  end
 
