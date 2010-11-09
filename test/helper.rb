@@ -6,6 +6,8 @@ require 'machinist/data_mapper'
 require 'faker'
 require 'sham'
 require 'em-spec/test'
+require 'webmock/test_unit'
+
 set :environment, :test
 set :run, false
 set :raise_errors, true
@@ -40,6 +42,7 @@ require 'shoulda'
 
 
 Test::Unit::TestCase.send(:include, TestHelper)
+Test::Unit::TestCase.send(:include, WebMock)
 
 def basic_auth_creds(username = 'admin', password = 'admin')
   {'HTTP_AUTHORIZATION'=> encode_credentials(username, password)}

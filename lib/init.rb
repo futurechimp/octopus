@@ -2,7 +2,7 @@
 #
 require 'rubygems'
 require 'sinatra'
-require 'ruby-debug'
+#require 'ruby-debug'
 require 'data_mapper'
 require 'eventmachine'
 require 'dm-validations'
