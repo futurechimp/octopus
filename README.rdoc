@@ -8,22 +8,7 @@ This thing is an experimental octopus implementation.
  sudo apt-get install libsqlite3-ruby libsqlite3-dev ruby rubygems
  sudo gem install octopus
 
-*Grab the code:*
-
-Anonymous checkout:
-
- foo: put github stuff here
-
-Commit access:
-
- git clone git@escapegoat.org:octopus.git
-
-Once you've got the code, just run the octopus like so:
-
- ruby octopus.rb
-
-Then visit http://localhost:4567 and you can start adding resources for your octopus to grab. There is a resource creation form at http://localhost:4567/new
-
+ octopus start
 
 == Note on Patches/Pull Requests
 
