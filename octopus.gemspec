@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{octopus}
-  s.version = "0.0.3"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["dave@boomer"]
@@ -70,10 +70,9 @@ Gem::Specification.new do |s|
     "test/test_octopus.rb",
      "test/test_net_resource.rb",
      "test/helper.rb",
-     "test/support/mock_server.rb",
      "test/support/blueprints.rb",
-     "test/test_subscription.rb",
-     "test/grabbers/test_generic_http.rb"
+     "test/test_generic_http_grabber.rb",
+     "test/test_subscription.rb"
   ]
 
   if s.respond_to? :specification_version then
