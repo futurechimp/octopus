@@ -7,5 +7,5 @@ disable :reload
 
 run Sinatra::Application
 
-require File.dirname(__FILE__) + '/init'
+require File.dirname(__FILE__) + '/../init'
 
