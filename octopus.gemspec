@@ -29,6 +29,7 @@ Gem::Specification.new do |s|
      "doc/octopus.zargo",
      "lib/ext/array_ext.rb",
      "lib/ext/partials.rb",
+     "lib/ext/reloader.rb",
      "lib/init.rb",
      "lib/octopus.rb",
      "lib/octopus/config.ru",
@@ -55,6 +56,7 @@ Gem::Specification.new do |s|
      "octopus.gemspec",
      "test/helper.rb",
      "test/support/blueprints.rb",
+     "test/test_generic_http_grabber.rb",
      "test/test_net_resource.rb",
      "test/test_octopus.rb",
      "test/test_subscription.rb"

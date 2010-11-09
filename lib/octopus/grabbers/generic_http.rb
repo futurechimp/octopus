@@ -7,8 +7,6 @@ module Grabbers
     # starts grabbing expired resources and checking them.
     #
     def initialize
-      @@currently_encoding = false
-      puts "Initializing generic http grabber..."
       EM.add_periodic_timer(5) {
         check_expired_resources
       }

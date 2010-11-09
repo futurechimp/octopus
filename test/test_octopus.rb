@@ -108,39 +108,66 @@ class OctopusTest <  Test::Unit::TestCase
     end
   end
 
-  def test_new_or_edit_for_new_resource
-    post '/new_or_edit', {:net_resource => {
-      :url => "http://news.bbc.co.uk/foo/bar/#{DateTime.now.to_s}/blah.rss"
-      }}, basic_auth_creds
-    follow_redirect!
-    assert_equal "http://example.org/new", last_request.url
+  context "on POST to new_or_edit" do
+    context "for a new NetResource" do
+      setup do
+        post '/new_or_edit', {:net_resource => {
+          :url => "http://news.bbc.co.uk/foo/bar/#{DateTime.now.to_s}/blah.rss"
+          }}, basic_auth_creds
+        follow_redirect!
+      end
+      should "go to :new action" do
+        assert_equal "http://example.org/new", last_request.url
+      end
+    end
+
+    context "for an existing NetResource" do
+      setup do
+        NetResource.make
+        post '/new_or_edit', {:net_resource => {
+          :url => NetResource.first.url
+          }}, basic_auth_creds
+        follow_redirect!
+      end
+      should "go to :show action" do
+        assert_equal "http://example.org/edit/#{NetResource.first.id}", last_request.url
+      end
+
+    end
   end
 
-  def test_new_or_edit_for_existing_resource
-    NetResource.make
-    post '/new_or_edit', {:net_resource => {
-      :url => NetResource.first.url
-      }}, basic_auth_creds
-    follow_redirect!
-    assert_equal "http://example.org/edit/#{NetResource.first.id}", last_request.url
+  context "on PUT to update" do
+    context "with good params" do
+      setup do
+        n = NetResource.make
+        put "/update/#{n.id}", {:id => n.id, :net_resource => {:update_period => 666}}, basic_auth_creds
+        follow_redirect!
+        should "display /" do
+          assert_equal "http://example.org/", last_request.url
+        end
+        should "set the NetResource's update period" do
+          assert_equal NetResource.first.update_period, 666
+        end
+      end
+    end
+    context "with bad params" do
+      setup do
+        NetResource.make
+        NetResource.first.update(:update_period => 60)
+        put "/update/#{NetResource.first.id}", {:net_resource => {:update_period => 10}}, basic_auth_creds
+      end
+      should "succeed" do
+        assert last_response.ok?
+      end
+      should "redisplay" do
+        assert_equal "http://example.org/update/#{NetResource.first.id}", last_request.url
+      end
+      should "not set the update period" do
+        assert_equal NetResource.first.update_period, 60
+      end
+    end
   end
 
-  def test_update
-    n = NetResource.make
-    put "/update/#{n.id}", {:id => n.id, :net_resource => {:update_period => 666}}, basic_auth_creds
-    follow_redirect!
-    assert_equal "http://example.org/", last_request.url
-    assert_equal NetResource.first.update_period, 666
-  end
-
-  def test_bad_update_redisplays
-    NetResource.make
-    NetResource.first.update(:update_period => 60)
-    put "/update/#{NetResource.first.id}", {:net_resource => {:update_period => 10}}, basic_auth_creds
-    assert last_response.ok?
-    assert_equal "http://example.org/update/#{NetResource.first.id}", last_request.url
-    assert_equal NetResource.first.update_period, 60
-  end
 
   private
 

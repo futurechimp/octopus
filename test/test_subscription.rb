@@ -5,8 +5,11 @@ class SubscriptionTest <  Test::Unit::TestCase
   context "A Subscription instance" do
 
     setup do
-      @resource = ::NetResource.new(:url => "http://example.org/foo.rss", :update_period => 25)
-      @resource.subscriptions << Subscription.new(:url => "http://example2.org/callback")
+      @resource = ::NetResource.new(
+        :url => "http://example.org/foo.rss",
+        :update_period => 25)
+      @resource.subscriptions << Subscription.new(
+        :url => "http://example2.org/callback")
       @subscription = ::Subscription.new
     end
 

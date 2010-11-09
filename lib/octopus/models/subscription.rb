@@ -5,17 +5,20 @@ class Subscription
   include DataMapper::Resource
 
   # Properties
+  #
   property :id,         Serial
   property :url,        String,  :required => true, :length => (1..254)
   property :created_at, DateTime
   property :updated_at, DateTime
 
   # Associations
+  #
   belongs_to :net_resource
 
   # Validations
+  #
   validates_with_method :validate_url
-  validates_present :net_resource
+  validates_presence_of :net_resource
 
   # Checks that the url property is formatted correctly.
   #
