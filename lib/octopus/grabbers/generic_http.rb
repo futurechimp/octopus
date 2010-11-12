@@ -20,16 +20,18 @@ module Grabbers
     def check_expired_resources
       net_resources = ::NetResource.expired
       net_resources.each do |resource|
-        uri = URI.parse(resource.url)
-        conn = HttpClient2.connect uri.host, uri.port
+        http = EM::HttpRequest.new(resource.url).get
 
-        req = conn.get(uri.path)
-        req.callback{ |response|
+        http.callback{ |response|
           resource.set_next_update
           if resource_changed?(resource, response)
             notify_subscribers(resource)
             update_changed_resource(resource, response)
           end
+        }
+        http.errback {|response|
+          # Do something here, maybe setting the resource
+          # to be not checked anymore.
         }
       end
     end
@@ -50,7 +52,7 @@ module Grabbers
     #
     def resource_changed?(resource, response)
       changed = false
-      if response.content.hash != resource.last_modified_hash
+      if response.hash != resource.last_modified_hash
         changed = true
       end
     end
@@ -62,9 +64,9 @@ module Grabbers
     # time.
     #
     def update_changed_resource(resource, response)
-      resource.last_modified_hash = response.content.hash
+      resource.last_modified_hash = response.hash
       resource.last_updated = Time.now
-      resource.body = response.content
+      resource.body = response
       resource.save
     end
 

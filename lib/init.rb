@@ -8,6 +8,7 @@ require 'eventmachine'
 require 'rack-flash'
 require 'dm-validations'
 require 'dm-sqlite-adapter'
+require 'em-http-request'
 
 
 # Extensions to Sinatra
