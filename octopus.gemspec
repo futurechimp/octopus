@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{octopus}
-  s.version = "0.0.5"
+  s.version = "0.0.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["dave@boomer"]
-  s.date = %q{2010-11-09}
+  s.date = %q{2010-11-12}
   s.default_executable = %q{octopus}
   s.description = %q{Grabs stuff off the net and notifies interested subscribers.}
   s.email = %q{dave.hrycyszyn@headlondon.com}
@@ -84,6 +84,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<dm-sqlite-adapter>, [">= 1.0.0"])
       s.add_runtime_dependency(%q<sinatra>, [">= 1.0.0"])
       s.add_runtime_dependency(%q<thin>, [">= 1.2.5"])
+      s.add_runtime_dependency(%q<em-http-request>, [">= 0"])
       s.add_runtime_dependency(%q<rack-flash>, [">= 0.1.1"])
       s.add_runtime_dependency(%q<rack>, [">= 1.0.1"])
       s.add_development_dependency(%q<shoulda>, [">= 2.10.2"])
@@ -94,6 +95,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<dm-sqlite-adapter>, [">= 1.0.0"])
       s.add_dependency(%q<sinatra>, [">= 1.0.0"])
       s.add_dependency(%q<thin>, [">= 1.2.5"])
+      s.add_dependency(%q<em-http-request>, [">= 0"])
       s.add_dependency(%q<rack-flash>, [">= 0.1.1"])
       s.add_dependency(%q<rack>, [">= 1.0.1"])
       s.add_dependency(%q<shoulda>, [">= 2.10.2"])
@@ -105,6 +107,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<dm-sqlite-adapter>, [">= 1.0.0"])
     s.add_dependency(%q<sinatra>, [">= 1.0.0"])
     s.add_dependency(%q<thin>, [">= 1.2.5"])
+    s.add_dependency(%q<em-http-request>, [">= 0"])
     s.add_dependency(%q<rack-flash>, [">= 0.1.1"])
     s.add_dependency(%q<rack>, [">= 1.0.1"])
     s.add_dependency(%q<shoulda>, [">= 2.10.2"])
