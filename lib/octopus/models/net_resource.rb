@@ -12,7 +12,7 @@ class NetResource
   property :update_period, Integer, :required => true, :default => 1200
   property :next_update, DateTime, :required => true, :default => Time.now
   property :last_updated, DateTime
-  property :body, Text
+  property :body, Text, :length => 0..10000000000000
   property :created_at, DateTime
   property :updated_at, DateTime
 
