@@ -41,9 +41,14 @@ module Grabbers
     #
     def notify_subscribers(resource)
       resource.subscriptions.each do |subscription|
-        uri = URI.parse(subscription.url)
-        conn = HttpClient2.connect uri.host, uri.port
-        req = conn.get(uri.path)
+        http = EM::HttpRequest.new(subscription.url).post(:body => {:data => resource.body})
+        http.callback{ |response|
+          puts "found updated data for #{resource.url}, #{resource.body.length} characters"
+        }
+        http.errback {|response|
+          # Do something here, maybe setting the resource
+          # to be not checked anymore.
+        }
       end
     end
 
@@ -52,7 +57,11 @@ module Grabbers
     #
     def resource_changed?(resource, response)
       changed = false
-      if response.hash != resource.last_modified_hash
+      puts "checking for changes on #{resource.url}"
+      puts "response.response.hash: #{response.response.hash}"
+      puts "resource.last_modified_hash: #{resource.last_modified_hash}"
+      if response.response.hash != resource.last_modified_hash
+        puts "changed!!!!\n\n\n\n"
         changed = true
       end
     end
@@ -64,9 +73,9 @@ module Grabbers
     # time.
     #
     def update_changed_resource(resource, response)
-      resource.last_modified_hash = response.hash
+      resource.last_modified_hash = response.response.hash
       resource.last_updated = Time.now
-      resource.body = response
+      resource.body = response.response
       resource.save
     end
 
