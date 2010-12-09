@@ -2,7 +2,7 @@
 
 # Octopus command line interface script.
 # Run <tt>octopus -h</tt> to get more usage.
-require File.dirname(__FILE__) + '/../lib/octopus'
+require 'rubygems'
 require 'thin'
 
 rackup_file = "#{File.dirname(__FILE__)}/../lib/octopus/config.ru"
