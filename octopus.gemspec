@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{octopus}
-  s.version = "0.0.7"
+  s.version = "0.0.8"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["dave@boomer"]
-  s.date = %q{2010-11-17}
+  s.date = %q{2010-12-09}
   s.default_executable = %q{octopus}
   s.description = %q{Grabs stuff off the net and notifies interested subscribers.}
   s.email = %q{dave.hrycyszyn@headlondon.com}
@@ -67,12 +67,12 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{An experimental octopus implementation.}
   s.test_files = [
-    "test/test_octopus.rb",
-     "test/test_net_resource.rb",
-     "test/helper.rb",
-     "test/support/blueprints.rb",
+    "test/test_subscription.rb",
      "test/test_generic_http_grabber.rb",
-     "test/test_subscription.rb"
+     "test/test_net_resource.rb",
+     "test/test_octopus.rb",
+     "test/helper.rb",
+     "test/support/blueprints.rb"
   ]
 
   if s.respond_to? :specification_version then
