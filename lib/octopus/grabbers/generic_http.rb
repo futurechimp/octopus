@@ -25,6 +25,7 @@ module Grabbers
         http.callback{ |response|
           resource.set_next_update
           if resource_changed?(resource, response)
+            resource.body = response.response
             update_changed_resource(resource, response)
             notify_subscribers(resource)
           end
