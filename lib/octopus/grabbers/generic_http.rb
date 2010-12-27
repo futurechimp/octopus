@@ -25,8 +25,8 @@ module Grabbers
         http.callback{ |response|
           resource.set_next_update
           if resource_changed?(resource, response)
-            notify_subscribers(resource)
             update_changed_resource(resource, response)
+            notify_subscribers(resource)
           end
         }
         http.errback {|response|
@@ -37,13 +37,15 @@ module Grabbers
     end
 
     # Notifies each of a NetResource's subscribers that the resource has changed
-    # by doing an HTTP GET request to the subscriber's callback url.
+    # by doing an HTTP POST request to the subscriber's callback url.
+    #
+    # The POST body contains a key called "data" which contains the feed value.
     #
     def notify_subscribers(resource)
       resource.subscriptions.each do |subscription|
         http = EM::HttpRequest.new(subscription.url).post(:body => {:data => resource.body})
         http.callback{ |response|
-          puts "found updated data for #{resource.url}, #{resource.body.length} characters"
+          puts "POSTed updated data for #{resource.url}, #{resource.body.length} characters"
         }
         http.errback {|response|
           # Do something here, maybe setting the resource
